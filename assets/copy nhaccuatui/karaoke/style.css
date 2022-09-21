@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .app {
+    width: 100%;
+    height: auto;
+  }
+  
+  .aud-control {
+    display: block;
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  #karaoke {
+    display: block;
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  #karaoke .kara-text,
+  #karaoke .kara-text-highlight {
+    display: inline-block;
+    font-size: 50px;
+    white-space: nowrap;
+  }
+  
+  #karaoke .kara-text {
+    position: relative;
+  }
+  
+  #karaoke .kara-text-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: violet;
+    text-shadow: 0px 0px 20px violet;
+    overflow: hidden;
+  }

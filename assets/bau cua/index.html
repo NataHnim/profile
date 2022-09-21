@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="contain">
+      <ul class="list">
+        <li
+          class="list-item"
+          id="t1"
+          style="background-image: url(./bau.jfif)"
+        ></li>
+        <li
+          class="list-item"
+          id="t2"
+          style="background-image: url(./cua.jpg)"
+        ></li>
+        <li
+          class="list-item"
+          id="t3"
+          style="background-image: url(./tom.png)"
+        ></li>
+        <li
+          class="list-item"
+          id="t4"
+          style="background-image: url(./ca.jpg)"
+        ></li>
+        <li
+          class="list-item"
+          id="t5"
+          style="background-image: url(./ga.jpg)"
+        ></li>
+        <li
+          class="list-item"
+          id="t6"
+          style="background-image: url(./nai.jpg)"
+        ></li>
+      </ul>
+      <button class="rung">Lắc Đều</button>
+      <ul class="xoay">
+        <li
+          class="item-xoay"
+          id="m1"
+          style="background-image: url(./bau.jfif)"
+        ></li>
+        <li
+          class="item-xoay"
+          id="m2"
+          style="background-image: url(./bau.jfif)"
+        ></li>
+        <li
+          class="item-xoay"
+          id="m3"
+          style="background-image: url(./bau.jfif)"
+        ></li>
+      </ul>
+      <audio id="audio" src="./dice.mp3"></audio>
+    </div>
+    <div class="player-list">
+        <ul class="player">
+            <li class="player-bet">
+              Tân
+              <select name="Cược" id="cuoc1" class = 'cuoc'>
+              </select>
+              <input type="text" id="N">
+            </li>
+            <li class="player-bet">
+                Trí <select name="Cược" id="cuoc2" class = 'cuoc'>
+                    
+                  </select>
+                  <input type="text" id="T">
+            </li>
+            <li class="player-bet"> 
+                Cao <select name="Cược" id="cuoc3" class = 'cuoc'>
+                    
+                  </select>
+                  <input type="text" id="C">
+                </li>
+            </li>
+            <li class="player-bet">
+                Hòa <select name="Cược" id="cuoc4" class = 'cuoc'>
+                   
+                  </select>
+                  <input type="text" id="H">
+                </li>
+            </li>
+            <li class="player-bet">
+                Quý <select name="Cược" id="cuoc5" class = 'cuoc'>
+                   
+                  </select>
+                  <input type="text" id="Q">
+                </li>
+            </li>
+            <li class="player-bet">
+                Long <select name="Cược" id="cuoc6" class = 'cuoc'>
+                   
+                  </select>
+                  <input type="text" id="L">
+                </li>
+            </li>
+            <li class="player-bet"></li>
+          </ul>
+          <button class="reset-btn">Reset</button>
+    </div>
+    <table class="tong" border="1">
+      <tr>
+        <th>Tên</th>
+        <th>Tiền</th>
+      </tr>
+      <tr>
+        <td>Tân</td>
+        <td id="tan">0</td>
+      </tr>
+      <tr>
+        <td>Trí</td>
+        <td id="tri">0</td>
+      </tr>
+      <tr>
+        <td>Cao</td>
+        <td id="cao">0</td>
+      </tr>
+      <tr>
+        <td>Hoà</td>
+        <td id="hoa">0</td>
+      </tr>
+      <tr>
+        <td>Quý</td>
+        <td id="quy">0</td>
+      </tr>
+      <tr>
+        <td>Long</td>
+        <td id="long">0</td>
+      </tr>
+    </table>
+    <script type="text/javascript">
+      const $$ = document.querySelectorAll.bind(document);
+      const $ = document.querySelector.bind(document);
+      const ok1 = $("#m1");
+      const ok2 = $("#m2");
+      const ok3 = $("#m3");
+      const rung = $(".rung");
+      const reset = $(".reset-btn")
+      const player = $('.player')
+      const cuoc1 = $('#cuoc1')
+      const cuoc2 = $('#cuoc2')
+      const cuoc3 = $('#cuoc3')
+      const cuoc4 = $('#cuoc4')
+      const cuoc5 = $('#cuoc5')
+      const cuoc6 = $('#cuoc6')
+      const cuoc = $$('.cuoc')
+      const audio = $('#audio')
+      const bet = $('.player-bet')
+      let total = 0,total1 = 0,total2 = 0,total3 = 0,total4 = 0,total5 = 0
+      const app = {
+        currentIndex: 0,
+        currentIndex1: 0,
+        currentIndex2: 0,
+        bauCua: [
+          {
+            id: 1,
+            name: "bầu",
+            image: "bau.jfif",
+          },
+          {
+            id: 2,
+            name: "cua",
+            image: "cua.jpg",
+          },
+          {
+            id: 3,
+            name: "tôm",
+            image: "tom.png",
+          },
+          {
+            id: 4,
+            name: "cá",
+            image: "ca.jpg",
+          },
+          {
+            id: 5,
+            name: "gà",
+            image: "ga.jpg",
+          },
+          {
+            id: 6,
+            name: "nai",
+            image: "nai.jpg",
+          },
+        ],
+
+        render: function () {
+          const htmls = this.bauCua.map((element, index) =>{
+            return `<option  id='${element.name}' data-index="${index}" value="${element.name}">${element.name}</option>`
+          }) 
+          for (var i = 0; i < cuoc.length;i++){
+            cuoc[i].innerHTML = htmls.join()
+          }
+        }, 
+        
+        defineProperties: function () {
+          Object.defineProperty(this, "currentImage", {
+            get: function () {
+              return this.bauCua[this.currentIndex];
+            },
+          }),
+            Object.defineProperty(this, "currentImage1", {
+              get: function () {
+                return this.bauCua[this.currentIndex1];
+              },
+            }),
+            Object.defineProperty(this, "currentImage2", {
+              get: function () {
+                return this.bauCua[this.currentIndex2];
+              },
+            });
+        },
+        imageRandom: function () {
+          (this.currentIndex = Math.round(Math.random() * 5)),
+            Math.round(Math.random() * 5),
+            Math.round(Math.random() * 5);
+          (this.currentIndex1 = Math.round(Math.random() * 5)),
+            Math.round(Math.random() * 5),
+            Math.round(Math.random() * 5),
+            Math.round(Math.random() * 5);
+          (this.currentIndex2 = Math.round(Math.random() * 5)),
+            Math.round(Math.random() * 5),
+            Math.round(Math.random() * 5),
+            Math.round(Math.random() * 5),
+            Math.round(Math.random() * 5);
+     
+        },
+        xucXac: function () {
+          ok1.style.backgroundImage = `url('${this.currentImage.image}')`;
+          ok2.style.backgroundImage = `url('${this.currentImage1.image}')`;
+          ok3.style.backgroundImage = `url('${this.currentImage2.image}')`;
+        },
+        cuocMot: function (bet,cuoc) {
+          const isSelected = document.getElementById(cuoc).value
+              if(isSelected === this.currentImage.name && isSelected=== this.currentImage1.name && isSelected=== this.currentImage2.name){
+                const numberBet = document.getElementById(bet).value
+                const common = Number(numberBet)*3 
+                return common
+              } else if(isSelected === this.currentImage.name && isSelected=== this.currentImage1.name || isSelected === this.currentImage.name && isSelected=== this.currentImage2.name||isSelected === this.currentImage2.name && isSelected=== this.currentImage1.name){
+                const numberBet = document.getElementById(bet).value
+                const common = Number(numberBet)*2      
+                return common
+              }else if(isSelected === this.currentImage.name|| isSelected === this.currentImage1.name || isSelected === this.currentImage2.name){
+                const numberBet = document.getElementById(bet).value
+                const common = Number(numberBet)*1    
+                return common   
+              } 
+              else{
+                const numberBet = document.getElementById(bet).value
+                const common = - Number(numberBet)
+                return common
+              }
+              
+        },
+        events: function () {
+          const random = (min, max) =>
+            Math.floor(Math.random() * (max - min)) + min;
+          const _this = this;
+          reset.onclick = function () {
+            window.location = window.location
+          }
+          rung.onclick = function () {
+            audio.play();
+            rung.style.display = 'none';
+            const myInterval = setInterval(function () {
+              _this.imageRandom();
+              _this.xucXac();
+            }, 100);
+            setTimeout(function () {
+              rung.style.display = 'block';
+              audio.pause();
+              audio.load();
+              const tienRender = document.getElementById('tan')
+              const tienRender1 = document.getElementById('tri')
+              const tienRender2 = document.getElementById('cao')
+              const tienRender3 = document.getElementById('hoa')
+              const tienRender4 = document.getElementById('quy')
+              const tienRender5 = document.getElementById('long')
+              const result = _this.cuocMot('N','cuoc1')
+              const result1 = _this.cuocMot('T','cuoc2')
+              const result2 = _this.cuocMot('C','cuoc3')
+              const result3 = _this.cuocMot('H','cuoc4')
+              const result4 = _this.cuocMot('Q','cuoc5')
+              const result5 = _this.cuocMot('L','cuoc6')
+              total = total + Number(result)
+              total1 = total1 + Number(result1)
+              total2 = total2 + Number(result2)
+              total3 = total3 + Number(result3)
+              total4 = total4 + Number(result4)
+              total5 = total5 + Number(result5)
+              tienRender.innerHTML = total
+              tienRender1.innerHTML = total1
+              tienRender2.innerHTML = total2
+              tienRender3.innerHTML = total3
+              tienRender4.innerHTML = total4
+              tienRender5.innerHTML = total5
+              clearInterval(myInterval);
+            }, random(2000, 5000));
+          };
+        },
+        start: function () {
+          this.events();
+          this.defineProperties();
+          this.render()
+        },
+      };
+
+      app.start();
+    </script>
+  </body>
+</html>

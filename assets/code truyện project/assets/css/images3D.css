@@ -1,0 +1,63 @@
+.header{
+    overflow: hidden;
+    display: flex;
+    background: #111;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    display:none;
+    height: var(--header-height);
+    transform:translateY(-100%);
+    transition: opacity linear 0.5s, transform linear 0.5s;
+}
+#box {
+    position: relative;
+    display: flex;
+    width: 130px;
+    height: 200px;
+    margin: auto;
+    transform-style: preserve-3d;
+    transform: rotateX(-10deg);
+  }
+  
+  #box>img {
+    transform-style: preserve-3d;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    line-height: 200px;
+    font-size: 50px;
+    text-align: center;
+    box-shadow: 0 0 10px #fff;
+    -webkit-box-reflect: below 10px linear-gradient(#fff0, #fff4);
+  }
+
+.open-musics{
+    font-size: 16px;
+    font-weight: 800;
+    border: none;
+    outline: none;
+    top:50%;
+    transform:translateY(50%);
+    position: fixed;
+    left: 0;
+    width: 30px;
+    height: 90px;
+    transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    background-color: var(--primary-color);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.open-musics .boxs{
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    white-space: nowrap !important;
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+    -webkit-writing-mode: vertical-lr;
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    color: #fff;
+}

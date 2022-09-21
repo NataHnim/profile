@@ -35,7 +35,7 @@ html{
     100%{opacity: 0;}
 }
 .main{
-    background: linear-gradient(45deg, #6f86d6, #88f0f8);
+    background: linear-gradient(45deg, #6f86d6, rgba(0,191,255, 1));
     padding:30px;
 }
 marquee a{
@@ -226,9 +226,20 @@ i.fa-brands.fa-github {
 .container__content-img.col.l-6.m-6.c-12 {
     display: flex;
 }
-.container__content-img-item{
-    margin-top:40px;
+
+.head_content{
+    margin-bottom: 10px;
 }
+
+.project-image{
+    padding-top: 158%;
+    width: 100%;
+    background-size: 100% 100%;
+    background-position: center;
+    box-shadow: 0px 5px 5px 1px  rgba(50, 50, 50, 0.402);
+    background-repeat: no-repeat;
+}
+
 .img-link{
     width:90%;
 }

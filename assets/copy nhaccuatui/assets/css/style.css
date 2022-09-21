@@ -1,0 +1,658 @@
+*{
+    box-sizing: inherit;
+}
+html{
+    /*---62.5%=10px----*/
+    font-size: 62.5%;
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    color: #000;
+}
+
+
+.header{
+    position:fixed;
+    top: 0;
+    left: auto;
+    right: auto;
+    max-height: 100px;
+    padding: 0 10px;
+
+}
+.header::after{
+    content: "";
+    border-top: 1px solid #ccc;
+    position: absolute;
+    top: 90%;
+    left: 0;
+    right: 0;
+}
+.header .wrap{
+    display: flex;
+}
+.header_logo{
+    background-image: url(https://stc-id.nixcdn.com/v11/images/header_new/logo_new.png);
+    background-repeat: no-repeat;
+    height:32px;
+    width: 64px;
+    margin: 0 10px 10px 0;
+}
+
+.notify{
+    list-style: none;
+    display: flex;
+    padding: 0;
+}
+
+.notify .notify_item{
+    line-height:32px;
+    padding: 0 10px 10px 0;
+}
+.notify_item:hover .list_choice-1{
+    display: block;
+}
+.notify .notify_item .active{
+    color:#2daaed;
+}
+.notify .notify_item-link{
+    text-decoration: none;
+    color: #000;
+    font-size: 15px;
+}
+
+.list_choice-1{
+    width: 550px;
+    padding: 0;
+    background-color: white;
+    box-shadow: 0 5px 6px #ccc;
+    display: none;
+    position: absolute;
+    top: 80%;
+    z-index: 6;
+}
+.list_choice-1::before{
+    content: "";
+    position: absolute;
+    top: -5%;
+    display: block;
+    height:20px;
+    width: 550px;
+}
+.list_choice-1 li{
+    list-style-type: none;
+    display:flex;
+}
+
+.list_choice-child .list_choice-1-item_link{
+    text-decoration: none;
+    font-size: 15px;
+    color: #000;
+}
+
+.list_choice-child li{
+    padding: 5px 0;
+}
+
+.list_choice-child li .Bold{
+    color: #000;
+    font-weight: 600;
+}
+.list_choice-2{
+    width: 100px;
+    padding: 0;
+    background-color: white;
+    box-shadow: 0 5px 6px #ccc;
+    display: none;
+    position: absolute;
+    top: 70%;
+    z-index:6;
+}
+.notify_item:hover .list_choice-2{
+    display: block;
+}
+.list_choice-2::before{
+    content: "";
+    position: absolute;
+    top: -5%;
+    display: block;
+    height:20px;
+    width: 100px;
+}
+.list_choice-2 .BXH{
+    list-style: none;
+    padding: 5px 0 5px 10px;
+}
+
+.list_choice-2 .BXH_link{
+    font-size: 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.dots{
+    background-image: url(https://stc-id.nixcdn.com/v11/images/header_new/ic_more_new.png);
+    background-repeat: no-repeat;
+    width: 21px;
+    height:30px;
+    background-position: center;
+    cursor: pointer;
+}
+
+.header-menu-wrapper-container{
+    display: flex;
+    position: relative;
+    flex: 1;
+}
+
+.box_search{
+    height:30px;
+    margin: 10px 10px 0 0;
+    border: none;
+    border-bottom-right-radius: 3px;
+    background-color: #f2f2f2;
+    outline: none;
+    width: 100%;
+}
+
+.box_search:focus ~ .suggestion{
+    display: block;
+}
+.box_search-link{
+    text-decoration: none;
+    color: #ccc;
+    background-color: #f2f2f2;
+    height:30px;
+    padding: 8px;
+    margin-top: 10px;
+    margin-left: 5px;
+    border-bottom-left-radius: 3px;
+}
+.header__search-btn-icon{
+    font-size:15px;
+}
+
+.suggestion{
+    max-height: 450px;
+    width: 330px;
+    overflow: hidden;
+    box-shadow: 0 5px 6px #ccc;
+    border-radius: 3px;
+    position:absolute;
+    left:6px;
+    top: 70%;
+    display:none;
+    z-index: 5;
+}
+.alots{
+    background-color: #f2f2f2;
+    height:40px;
+    line-height: 40px;
+
+}
+.alots::after{
+    content: "";
+    border-top: 1px solid #ccc;
+    position: absolute;
+    left: 0;
+    right: 0;
+}
+.alots h3,
+.historyFind_delete h3{
+    padding: 0 0 0 10px;
+    margin: 0;
+}
+
+.alots_list .alots_list-link{
+    text-decoration: none;
+    color: #000;
+    display:flex;
+    align-items: center;
+    font-size: 12px;
+    padding: 0 0 0 15px;
+}
+
+.alots_list .alots_list-link p{
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 20px;
+}
+
+.alots_list .alots_list-link .p1{
+    color: #e74c3c;
+}
+.alots_list .alots_list-link .p2{
+    color: #1abc9c;
+}
+
+.alots_list .alots_list-link .p3{
+    color: #f39c4d;
+}
+.alots_list .alots_list-link .p4{
+    color: #2980b9;
+}   
+.alots_list .alots_list-link .p5{
+    color: #48647c
+}
+
+.historyFind_delete{
+    background-color: #f2f2f2;
+    height:40px;
+    line-height: 40px;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+.historyFind_delete::after{
+    content: "";
+    border-top: 1px solid #ccc;
+    position: absolute;
+    top:0 ;
+    left: 0;
+    right: 0;
+}
+.historyFind_delete::before{
+    content: "";
+    border-top: 1px solid #ccc;
+    position: absolute;
+    top:100% ;
+    left: 0;
+    right: 0;
+}
+.historyFind_delete i{
+    font-size: 15px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.history-find{
+    height:40px;
+    line-height: 40px;
+}
+.history-find span{
+    font-style: italic;
+    color: #a09e9e;
+    padding: 0 0 0 10px;
+}
+
+.button-pay{
+    width: 28px;
+}
+
+.button-upgrade-item{
+    background-image: url(https://stc-id.nixcdn.com/v11/images/header_new/ic_store.png);
+    background-repeat: no-repeat;
+    background-size: 28px;
+    display: block;
+    font-size: 5px;
+    width: 28px;
+    height: 30px;
+    margin: 10px 10px 0 0;
+}
+
+.button-upgrade-item:hover{
+    opacity: 0.7;
+}
+
+.button-upload{
+    width: 28px;
+    margin-left: 10px;
+}
+
+.button-upload-btn{
+    background-image: url(https://stc-id.nixcdn.com/v11/images/header_new/ic_upload.png);
+    background-repeat: no-repeat;
+    background-size: 28px;
+    display: block;
+    font-size: 5px;
+    width: 28px;
+    height: 30px;
+    margin: 10px 10px 0 0;
+    position: relative;
+}
+
+.button-upload-btn:hover{
+    opacity:0.7;
+}
+
+.button-upload-btn::after{
+    content:"";
+    position:absolute;
+    right:-50%;
+    top: 50%;
+    transform: translateY(calc(50% - 25px));
+    width: 1px;
+    height: 25px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.header-user-profile-container{
+    cursor: default;
+    width: 160px;
+    height: 41px;
+    border-radius: 0;
+    border: 0;
+    background-color: transparent;
+    margin-left: 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:5px;
+    flex: 1;
+}
+
+.header-user-profile-container .active{
+    background-color:#2daaed;
+    color:white;
+    padding: 7px 12px;
+    border-radius: 5px;
+    
+}
+
+.header-user-profile-container a{
+    text-decoration: none;
+    color: #000;
+    font-size: 15px;
+}
+.header-user-profile-container p{
+    margin: 0;
+}
+.profile-login {
+    margin-right: 7px;
+    width: 80px;
+}
+.profile-register{
+    width: 80px;
+}
+
+.box_content{
+    margin-top: 100px;
+    position: relative;
+}
+
+
+.dashboard{
+    height:155px;
+    background-color: #000;
+    position:relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.cdAndlyrics{
+    display:flex;
+    align-items: center;
+}
+
+.cd{
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100px;
+    height: 100px;
+    margin: 5px 50px 5px 10px;
+    border-radius: 50%;
+}
+
+.karaoke{
+    display: block;
+    flex: 1;
+    color: white;
+    text-align: center;
+}
+
+.karaoke .kara-text,
+.karaoke .kara-text-highlight{
+    display: inline-block;
+    font-size: 25px;
+    white-space: nowrap;
+}
+
+.karaoke .kara-text{
+    position: relative;
+}
+
+.karaoke .kara-text-highlight{
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #0a70fe;
+    text-shadow: 0px 0px 20px #0a70fe;
+    overflow: hidden;
+}
+
+.progress-container{
+    background: #fff;
+    cursor: pointer;
+    margin-top: 5px;
+    height: 4px;
+    width: 100%;
+}
+
+.progress {
+    width: 0%;
+    -webkit-appearance: none;
+    height: 100%;
+    background: #2daaed;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: width 0.1s linear;
+  }
+  
+  .progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 12px;
+    height: 6px;
+    background-color: #2daaed;
+    cursor: pointer;
+  }
+
+.control{
+    display: flex;
+    color: #dbdbdb;
+    justify-content: space-between;
+    flex: 1;
+    align-items: center;
+}
+
+.btn{
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.control_left{
+    display: flex;
+    align-items: center;
+}
+
+.time_play{
+    display: flex;
+    margin-left: 10px;
+}
+
+
+.btn-pre{
+    margin-left: 10px;
+}
+
+.btn-toggler-play{
+    font-size: 20px;
+    margin:0 15px;
+}
+
+.btn-toggler-play .icon-pause{
+    display:none;
+}
+
+
+.btn-toggler-play.active .icon-pause{
+    display: block;
+}
+
+.btn-toggler-play.active .icon-play{
+    display: none;
+}
+
+.control_right{
+    display: flex;
+}
+
+.btn-random.active{
+    color: #2971a1;
+}
+
+.btn-repeat{
+    margin: 0 15px;
+}
+
+.btn-repeat.active{
+    color: #2971a1;
+}
+
+.btn-volume{
+    margin-right: 10px;
+    position: relative;
+}
+
+.btn-volume:hover .volume_range{
+    display: block;
+}
+
+.volume_range{
+    z-index: 1020;
+    margin-left: 6px;
+    display: none;
+}
+
+.volume_range::after{
+    display: block;
+    content: "";
+    width: 10px;
+    height: 30px;
+    position:absolute;
+    top: -27px;
+    right: 4px;
+}
+
+/*Thiết lập style cho range slider*/
+.slider {
+    transform:rotate(-90deg);
+    -webkit-appearance: none;
+    width: 90px;
+    height: 7px;
+    border-radius: 3px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    position: absolute;
+    top: -75px;
+    left: -38px;
+  }
+ /*Thiết kế phần để kéo trượt trong rangerslider -- dùng -webkit- để chạy trên Chrome, Opera, Safari, Edge*/
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: DodgerBlue;
+    cursor: pointer;
+}
+
+.play-list{
+    width: auto;
+    height: 205px;
+    overflow-y: auto;
+    border: #dbdbdb solid 1px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.list-song{
+    padding: 0;
+    margin:0;
+}
+
+.song-item{
+    display: flex;
+    justify-content: space-between;
+    height:36px;
+    line-height: 36px;
+    position:relative
+}
+
+.song-item.active{
+    background-color: #e9f3f7;
+}
+
+.song-item::after{
+    content: "";
+    display: block;
+    border-bottom: 1px solid #ececec;
+    position:absolute;
+    top: 100%;
+    right: 0;
+    left:0;
+}
+
+.item-content{
+    font-size: 15px;
+}
+
+.item-content a{
+    text-decoration: none;
+    color: #000;
+    
+}
+
+.option{
+    margin-right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+
+.size{
+    font-size:15px;
+    margin: 0px 12px 0px 0px;
+}
+
+.play-item{
+    color:#9f9f9f;
+}
+
+.play-item .icon-pause{
+    display: none;
+}
+
+.play-item.active .icon-pause{
+    display: block;
+}
+
+.play-item.active .icon-play{
+    display: none;
+}
+
+.addPlayList{
+    width: 16px;
+    height: 14px;
+    background: url(https://stc-id.nixcdn.com/v11/images/icon.png) -44px top no-repeat;
+    display: block;
+    float: left;
+    margin: 0px 12px 0px 0px;
+}
+
+.service{
+    width: 22px;
+    height: 20px;
+    background: url(https://stc-id.nixcdn.com/v11/images/nhaccho/icon-nhac-chuong.png);
+    display: block;
+    float: right;
+    background-size: cover;
+}

@@ -1,0 +1,352 @@
+:root{
+    --white-color:#fff;
+    --black-color:rgb(49, 48, 53);
+    --text-color:#333;
+    --primary-color:rgba(0,191,255, 1);
+    --border-color:#dbdbdb;
+    --star-gold-color:#ffce3e;
+    --header-height:300px;
+}
+
+*{
+    box-sizing: inherit;
+}
+
+body{
+	position: relative;
+}
+
+html{
+    box-sizing: border-box;
+    line-height: 1.6rem;
+}
+
+.clear::before, .clear::after{
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.animate_canvas{
+  width: 100%;
+}
+
+.canvas{
+  margin-top:2px;
+  margin-left: 10px;
+  height: 135px;
+  display: block;
+  width: 100%;
+  background-color: var(--primary-color);
+}
+
+
+/* .wrap-image{
+    width: 100%;
+    -webkit-animation: slide 14s ease infinite;
+    display: flex;
+}
+
+
+@-webkit-keyframes slide {
+    20% {margin-left: 0px;}
+    30% {margin-left: -100%;}
+    50% {margin-left: -100%;}
+    60% {margin-left: -200%;}
+    80% {margin-left: -200%;}
+  } */
+
+
+/* slide tròn */
+
+/* .button {
+  position: absolute;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  padding: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.slider__toggle-wrapper {
+    display: flex;
+    width: 130px;
+    margin: 0 auto;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .slider__toggle {
+    position: static;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #000000;
+    cursor: pointer;
+  }
+  .slider__toggle.active {
+    border: 1px solid #000000;
+    background-color: #f2f2f2;
+  } */
+
+/* slide vuông*/
+
+.slider__toggle-wrapper{
+  max-width: 100%;
+  background-color:rgba(0 0 0 / 40%);
+  margin: 0 10px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  width: 780px;
+}
+
+.slider__toggle{
+  height: 36px;
+  border: none;
+  outline: none;
+  background-color: #999999;
+  border-left: 1px solid #fff;
+  border-right: 1px solid #fff;
+  color: #fff;
+  width: 17%;
+  cursor: pointer;
+}
+
+.slider__toggle.active {
+  font-weight: 700;
+  background-color: var(--primary-color);
+}
+
+  /* music play */
+.music{
+  max-width: 480px;
+  margin: 0 auto;
+  position:fixed;
+  right:0;
+  bottom:25%;
+  overflow: auto;
+  height: 400px;
+  width: 275px;
+  transform:translateX(100%);
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+}
+
+/* dash board */
+.dashboard{
+  padding: 10px 16px 10px;
+  background-color: rgba(0, 0, 0, 0.8);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  max-width: 480px;
+  border-bottom: 1px solid #ebebeb;
+}
+
+header {
+text-align: center;
+margin-bottom: 10px;
+}
+
+header h5 {
+  color: var(--primary-color);
+  font-size: 12px;
+}
+header h4 {
+  color: #ebebeb;
+}
+.cd {
+  display: flex;
+  margin: auto;
+  width: 50px;
+}
+
+.cd-thumb {
+  width: 100%;
+  padding-top: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  background-size: cover;
+  margin: auto;
+}
+
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 18px 0 8px 0;
+}
+
+.control .btn {
+  color: #fff;
+  padding: 5px;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.btn-volume{
+  color: #fff;
+  font-size: 10px;
+  margin-left: 16px;
+  padding-bottom: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.btn-volume:hover .slider{
+  display: block;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 2px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+  display: none;
+}
+/*Thiết kế phần để kéo trượt trong rangerslider -- dùng -webkit- để chạy trên Chrome, Opera, Safari, Edge*/
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 8px;
+  height: 8px;
+   background: DodgerBlue;
+  cursor: pointer;
+}
+
+.control .btn.active {
+  color: var(--primary-color);
+}
+
+.fa, .fas {
+  font-weight: 900;
+}
+
+.control .btn-toggle-play {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 15px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-color);
+}
+
+.btn-toggle-play .icon-pause {
+  display: none;
+}
+
+.btn-toggle-play.playing .icon-pause {
+  display: inline-block;
+}
+
+.btn-toggle-play.playing .icon-play {
+  display: none;
+}
+
+.process-song {
+  background: rgb(151, 148, 148, .5);
+  cursor: pointer;
+  margin-top: 5px;
+  height: 4px;
+  width: 100%;
+}
+
+.process {
+  width: 0%;
+  -webkit-appearance: none;
+  height: 100%;
+  background: var(--primary-color);
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: width 0.1s linear;
+}
+
+/* playlist */
+
+.playlist {
+  padding: 2px;
+  cursor: pointer;
+}
+
+.song {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  background-color: #fff;
+  padding: 0px 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgb(0 0 0 / 10%);
+}
+
+.song .thumb {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-size: cover;
+  margin: 0 8px;
+}
+
+.song .body {
+  flex: 1;
+  padding: 0 10px;
+}
+
+.song .title {
+  font-size: 9px;
+  color: var(--text-color);
+}
+
+.song .author {
+  font-size: 10px;
+  color: var(--text-color);
+}
+.song .option {
+  padding: 5px 5px;
+  color: #999;
+  font-size: 10px;
+}
+
+.song.active {
+  background-color: var(--primary-color);
+}
+
+.open-music{
+  font-size: 16px;
+  font-weight: 800;
+  border: none;
+  outline: none;
+  top:50%;
+  transform:translateY(50%);
+  position: fixed;
+  right: 0;
+  width: 30px;
+  height: 90px;
+  transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.open-music .box{
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  white-space: nowrap !important;
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
+  transform: rotate(180deg);
+  color: #fff;
+}
